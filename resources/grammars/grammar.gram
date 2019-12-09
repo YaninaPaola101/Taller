@@ -1,0 +1,18 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Grammar 
+ */
+
+grammar grammar;
+
+public <verbo> = ( mover);
+
+public <figuras>  = ( triangulo);
+
+public <lugar> = (arriba | abajo | izquierda | derecha);
+             
+public <syntax> = <verbo>{1}<figuras>{1}<lugar>{1}; 
+
+
+
