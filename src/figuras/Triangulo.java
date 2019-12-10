@@ -15,7 +15,7 @@ public class Triangulo extends Figura {
 		puntoc = new Punto(1.0f, -1.0f, 0.0f);
 	}
 	public void dibujar(GL2 gl){   
-	   gl.glTranslatef(6.5f, 0.0f, -6.0f); //
+//	   gl.glTranslatef(6.5f, 0.0f, -6.0f); //
 	   gl.glBegin(GL_TRIANGLES);  
 	   gl.glColor3f(1.0f, 0.0f, 0.0f);
        gl.glVertex3f(puntoa.getCoordenadax(), puntoa.getCoordenaday(), puntoa.getCoordenadaz());

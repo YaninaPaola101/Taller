@@ -111,7 +111,7 @@ public class Figura2D extends GLCanvas implements GLEventListener {
    boolean triangulo= false;
    @Override
    public void display(GLAutoDrawable drawable) {
-
+	   System.out.println("olis");
 	    GL2 gl = drawable.getGL().getGL2();  
 	      gl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
 	      gl.glLoadIdentity();  
@@ -120,24 +120,24 @@ public class Figura2D extends GLCanvas implements GLEventListener {
 	      
 	      dibujarFiguras(gl);
 	      //implementar metodo dibujar
-	      gl.glTranslatef(3.0f, 0.0f, 0.0f);
+	      //sgl.glTranslatef(3.0f, 0.0f, 0.0f);
 	    
 	      coordenadaX += aditivoX;
 	      coordenadaY += aditivoY;
    }
-   public void dibujar(GL2 gl)
-   {
-	   if(cuadrado == true)
-		   if(triangulo  == true)
-			   	dibujarFiguras(gl);
-	   
-		  
-   }
+//   public void dibujar(GL2 gl)
+//   {
+//	   if(cuadrado == true)
+//		   if(triangulo  == true)
+//			   	dibujarFiguras(gl);
+//	   
+//		  
+//   }
    public void dibujarFiguras(GL2 gl)
    {
-	   //tri.dibujar(gl);
+	  tri.dibujar(gl);
 	   //cua.dibujar(gl);
-	   cir.dibujar(gl);
+	   //cir.dibujar(gl);
    }
    
    
@@ -169,6 +169,18 @@ public class Figura2D extends GLCanvas implements GLEventListener {
    {
 	   aditivoX = 0.0f;
 	   aditivoY = 0.0f;
+   }
+   public static void crearTriangulo()
+   {
+	   
+   }
+   public static void crearCuadrado()
+   {
+	   
+   }
+   public static void crearCirculo()
+   {
+	   
    }
    @Override
    public void dispose(GLAutoDrawable drawable) { }
