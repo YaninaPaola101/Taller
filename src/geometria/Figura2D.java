@@ -12,6 +12,9 @@ import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.FPSAnimator;
 
+import figuras.Circulo;
+import figuras.Cuadrado;
+import figuras.Rectangulo;
 import figuras.Triangulo;
 import static com.jogamp.opengl.GL.*;  
 import static com.jogamp.opengl.GL2.*;
@@ -24,6 +27,8 @@ public class Figura2D extends GLCanvas implements GLEventListener {
    public static final int CANVAS_ALTURA = 480; 
    public static final int FPS = 60; 
    private Triangulo  tri = new Triangulo(); 
+   private Cuadrado cua = new Cuadrado();
+   private Circulo cir = new Circulo();
    public static void dibujarVentana() {
 	   Figura2D canvas = new Figura2D();
 	   SwingUtilities.invokeLater(new Runnable() {
@@ -130,8 +135,9 @@ public class Figura2D extends GLCanvas implements GLEventListener {
    }
    public void dibujarFiguras(GL2 gl)
    {
-	   tri.dibujar(gl);
-    
+	   //tri.dibujar(gl);
+	   //cua.dibujar(gl);
+	   cir.dibujar(gl);
    }
    
    

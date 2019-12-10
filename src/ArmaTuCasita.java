@@ -15,6 +15,7 @@ public class ArmaTuCasita {
 		
 		Figura2D.dibujarVentana();
 		
+			
 		
 	}
 
