@@ -1,16 +1,18 @@
 package geometria;
 import java.awt.*;
-
 import java.awt.event.*;
 import java.util.Scanner;
 
 import javax.swing.*;
+
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.util.FPSAnimator;
+
+import figuras.Triangulo;
 import static com.jogamp.opengl.GL.*;  
 import static com.jogamp.opengl.GL2.*;
 import static com.jogamp.opengl.GL2ES3.GL_QUADS; 
@@ -21,6 +23,7 @@ public class Figura2D extends GLCanvas implements GLEventListener {
    public static final int CANVAS_ANCHO = 640;  
    public static final int CANVAS_ALTURA = 480; 
    public static final int FPS = 60; 
+   private Triangulo  tri = new Triangulo(); 
    public static void dibujarVentana() {
 	   Figura2D canvas = new Figura2D();
 	   SwingUtilities.invokeLater(new Runnable() {
@@ -127,18 +130,9 @@ public class Figura2D extends GLCanvas implements GLEventListener {
    }
    public void dibujarFiguras(GL2 gl)
    {
-	   
-	   gl.glTranslatef(-1.5f, 0.0f, -6.0f); 
-	      gl.glBegin(GL_TRIANGLES);  
-	   gl.glColor3f(1.0f, 0.0f, 0.0f);
-       gl.glVertex3f(0.0f+coordenadaX, 1.0f+coordenadaY, 0.0f);
-       gl.glColor3f(0.0f, 255f, 0.0f);
-       gl.glVertex3f(-1.0f+coordenadaX, -1.0f+coordenadaY , 0.0f);
-       gl.glColor3f(1.0f, 0.0f, 255f);
-       gl.glVertex3f(1.0f+coordenadaX, -1.0f+coordenadaY, 0.0f);
-    gl.glEnd();
+	   tri.dibujar(gl);
     
- }
+   }
    
    
    public static void moverArriba()
