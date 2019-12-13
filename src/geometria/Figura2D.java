@@ -1,6 +1,7 @@
 package geometria;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.*;
@@ -14,12 +15,13 @@ import com.jogamp.opengl.util.FPSAnimator;
 
 import figuras.Circulo;
 import figuras.Cuadrado;
+import figuras.Figura;
 import figuras.Rectangulo;
 import figuras.Triangulo;
 import static com.jogamp.opengl.GL.*;  
 import static com.jogamp.opengl.GL2.*;
 import static com.jogamp.opengl.GL2ES3.GL_QUADS; 
-
+import java.util.List;
 @SuppressWarnings("serial")
 public class Figura2D extends GLCanvas implements GLEventListener {
    public static String TITLE = "Figura2D";
@@ -29,7 +31,21 @@ public class Figura2D extends GLCanvas implements GLEventListener {
    private Triangulo  tri = new Triangulo(); 
    private Cuadrado cua = new Cuadrado();
    private Circulo cir = new Circulo();
-   public static void dibujarVentana() {
+   
+   private static List<Figura> listaFiguras;
+   static float coordenadaX = 0.0f;
+   static float coordenadaY = 0.0f;
+
+   static float velocidad =0.005f;
+   
+   static float aditivoX = 0.0f;
+   static float aditivoY = 0.0f;
+  
+   
+   private static boolean cuadrado = false;
+   private boolean triangulo= false;
+   private static boolean circulo = false;
+   public  void dibujarVentana() {
 	   Figura2D canvas = new Figura2D();
 	   SwingUtilities.invokeLater(new Runnable() {
          @Override
@@ -58,17 +74,14 @@ public class Figura2D extends GLCanvas implements GLEventListener {
             animator.start(); 
          }
       });
-	    
-	    
-	    
-      
    }
-   
+  
    private GLU glu;  
    
    public Figura2D() {
+	   listaFiguras = new ArrayList<Figura>();
       this.addGLEventListener(this);
-      
+  
    }
    
    @Override
@@ -99,19 +112,9 @@ public class Figura2D extends GLCanvas implements GLEventListener {
       gl.glMatrixMode(GL_MODELVIEW);
       gl.glLoadIdentity(); 
    }
-   static float coordenadaX = 0.0f;
-   static float coordenadaY = 0.0f;
 
-   static float velocidad =0.005f;
-   
-   static float aditivoX = 0.0f;
-   static float aditivoY = 0.0f;
-   
-   boolean cuadrado = false;
-   boolean triangulo= false;
    @Override
    public void display(GLAutoDrawable drawable) {
-	   System.out.println("olis");
 	    GL2 gl = drawable.getGL().getGL2();  
 	      gl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
 	      gl.glLoadIdentity();  
@@ -135,15 +138,16 @@ public class Figura2D extends GLCanvas implements GLEventListener {
 //   }
    public void dibujarFiguras(GL2 gl)
    {
-	  tri.dibujar(gl);
-	   //cua.dibujar(gl);
-	   //cir.dibujar(gl);
+	   
+	  for(Figura f:listaFiguras)
+		  f.dibujar(gl);
+
    }
    
    
    public static void moverArriba()
    {   
-	   aditivoX = 0.0f;
+	   aditivoX = 0.0f;//
 	   aditivoY= velocidad;
 	   coordenadaY=aditivoY;
    }
@@ -170,17 +174,18 @@ public class Figura2D extends GLCanvas implements GLEventListener {
 	   aditivoX = 0.0f;
 	   aditivoY = 0.0f;
    }
-   public static void crearTriangulo()
+   public  void crearTriangulo()
    {
-	   
+	   listaFiguras.add(new Triangulo());
+//	  System.out.println(listaFiguras.size());
    }
-   public static void crearCuadrado()
+   public  void crearCuadrado()
    {
-	   
+	   listaFiguras.add(new Cuadrado());	   
    }
-   public static void crearCirculo()
+   public  void crearCirculo()
    {
-	   
+	   listaFiguras.add(new Circulo());
    }
    @Override
    public void dispose(GLAutoDrawable drawable) { }
