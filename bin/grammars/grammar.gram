@@ -6,9 +6,9 @@
 
 grammar grammar;
 
-public <verbo> = ( mover);
+public <verbo> = ( mover | crear);
 
-public <figuras>  = ( triangulo);
+public <figuras>  = ( triangulo | circulo | cuadrado);
 
 public <lugar> = (arriba | abajo | izquierda | derecha);
              

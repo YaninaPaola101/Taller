@@ -18,11 +18,32 @@ public class Cuadrado extends Figura{
 	{ 	//implementar coordenadas punto ,get
 //	    gl.glTranslatef(1.5f, 0.0f, -6.0f); 
 	    gl.glBegin(GL2.GL_QUADS); 
-        gl.glVertex3f(-1.0f, 1.0f, 0.0f);
-        gl.glVertex3f(1.0f, 1.0f, 0.0f);
-        gl.glVertex3f(1.0f, -1.0f, 0.0f);
-        gl.glVertex3f(-1.0f, -1.0f, 0.0f);
+        gl.glVertex3f(puntoa.getCoordenadax(), puntoa.getCoordenaday(), puntoa.getCoordenadaz());
+        gl.glVertex3f(puntob.getCoordenadax(), puntob.getCoordenaday(), puntob.getCoordenadaz());
+        gl.glVertex3f(puntoc.getCoordenadax(), puntoc.getCoordenaday(), puntoc.getCoordenadaz());
+        gl.glVertex3f(puntod.getCoordenadax(), puntod.getCoordenaday(), puntod.getCoordenadaz());
+
         gl.glEnd();
+	}
+	@Override
+	public void moverArriba() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void moverDerecha() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void moverAbajo() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void moverIzquierda() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

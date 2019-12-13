@@ -13,8 +13,7 @@ public class ArmaTuCasita {
 		ReconocimientoDePalabras.addListener(manejarComandos);
 		ReconocimientoDePalabras.reconocimiento();
 		
-		Figura2D.dibujarVentana();
-		
+		manejarComandos.setVentana(new Figura2D());
 			
 		
 	}

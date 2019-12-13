@@ -25,4 +25,28 @@ public class Circulo extends Figura{
         }
         gl.glEnd();
 	}
+
+	@Override
+	public void moverArriba() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moverDerecha() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moverAbajo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moverIzquierda() {
+		// TODO Auto-generated method stub
+		
+	}
 }
