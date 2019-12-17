@@ -9,10 +9,11 @@ public class Triangulo extends Figura {
 	private Punto puntoa;
 	private Punto puntob;
 	private Punto puntoc;
-	public Triangulo(){
+	public Triangulo(String color){
 		puntoa = new Punto(0.0f, 1.0f, 0.0f);
 		puntob = new Punto(-1.0f, -1.0f, 0.0f);
 		puntoc = new Punto(1.0f, -1.0f, 0.0f);
+		
 	}
 	public void dibujar(GL2 gl){  
 

@@ -11,8 +11,10 @@ public <verbo> = ( mover | crear);
 public <figuras>  = ( triangulo | circulo | cuadrado);
 
 public <lugar> = (arriba | abajo | izquierda | derecha);
+
+public <color> = (negro | azul | rojo | amarillo | verde);
              
-public <syntax> = <verbo>{1}<figuras>{1}<lugar>{1}; 
+public <syntax> = <verbo>{1}<figuras>{1}<color>{1}<lugar>{1}; 
 
 
 

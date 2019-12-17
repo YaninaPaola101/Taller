@@ -28,19 +28,10 @@ public class Figura2D extends GLCanvas implements GLEventListener {
    public static final int CANVAS_ANCHO = 640;  
    public static final int CANVAS_ALTURA = 480; 
    public static final int FPS = 60; 
-   private Triangulo  tri = new Triangulo(); 
-   private Cuadrado cua = new Cuadrado();
-   private Circulo cir = new Circulo();
+
    
    private static List<Figura> listaFiguras;
-   static float coordenadaX = 0.0f;
-   static float coordenadaY = 0.0f;
 
-   static float velocidad =0.005f;
-   
-   static float aditivoX = 0.0f;
-   static float aditivoY = 0.0f;
-  
    
    private static boolean cuadrado = false;
    private boolean triangulo= false;
@@ -125,8 +116,7 @@ public class Figura2D extends GLCanvas implements GLEventListener {
 	      //implementar metodo dibujar
 	      //sgl.glTranslatef(3.0f, 0.0f, 0.0f);
 	    
-	      coordenadaX += aditivoX;
-	      coordenadaY += aditivoY;
+	    
    }
 //   public void dibujar(GL2 gl)
 //   {
@@ -143,50 +133,16 @@ public class Figura2D extends GLCanvas implements GLEventListener {
 		  f.dibujar(gl);
 
    }
+   public void dibujarFigura(String figura,String color) {
+	   
+	   switch(figura) {
+	   case "triangulo":listaFiguras.add(new Triangulo(color));break;
+	   
+	   }
+	   
+   }
    
-   
-   public static void moverArriba()
-   {   
-	   aditivoX = 0.0f;//
-	   aditivoY= velocidad;
-	   coordenadaY=aditivoY;
-   }
-   public static void moverAbajo()
-   {
-	   aditivoX = 0.0f;
-	   aditivoY = -velocidad;
-	   coordenadaY=aditivoY;   
-   }
-   public static void moverIzquierda()
-   {
-	   aditivoY = 0.0f;
-	   aditivoX=-velocidad;
-	   coordenadaX=aditivoX;
-   }
-   public static void moverDerecha()
-   {
-	   aditivoY=0.0f;
-	   aditivoX = velocidad;
-	   coordenadaX=aditivoX;   
-   }
-   public static void parar()
-   {
-	   aditivoX = 0.0f;
-	   aditivoY = 0.0f;
-   }
-   public  void crearTriangulo()
-   {
-	   listaFiguras.add(new Triangulo());
-//	  System.out.println(listaFiguras.size());
-   }
-   public  void crearCuadrado()
-   {
-	   listaFiguras.add(new Cuadrado());	   
-   }
-   public  void crearCirculo()
-   {
-	   listaFiguras.add(new Circulo());
-   }
+
    @Override
    public void dispose(GLAutoDrawable drawable) { }
    

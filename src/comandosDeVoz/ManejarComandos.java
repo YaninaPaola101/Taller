@@ -12,18 +12,43 @@ public class ManejarComandos implements ComandosListener{
 	}
 	@Override
 	public void comandoPronunciado(String comando) {
-
-		switch(comando) {
-			case "mover triangulo arriba":Figura2D.moverArriba();break;
-			case "mover triangulo abajo":Figura2D.moverAbajo();break;
-			case "mover triangulo derecha":Figura2D.moverDerecha();break;
-			case "mover triangulo izquierda":Figura2D.moverIzquierda();break;
-			case "crear triangulo":ventana.crearTriangulo();break; 
-			case "crear cuadrado":ventana.crearCuadrado();break; 
-			case "crear circulo":ventana.crearCirculo();break; 
+		String[] palabras = comando.split(" ");
+		
+		if(comando.startsWith("mover")){
 			
-			case "parar":Figura2D.parar();break;
+		}else {
+			if(comando.startsWith("parar")) {
+			
+			}else {
+				if(comando.startsWith("crear")) {
+					crearFigura(palabras);
+				}
+				else {
+					System.out.println("No se reconocio comando ");
+				}
+				
+			}
 		}
+//		switch(comando) {
+//			case "mover triangulo arriba":ventana.moverArriba();break;
+//			case "mover triangulo abajo":ventana.moverAbajo();break;
+//			case "mover triangulo derecha":ventana.moverDerecha();break;
+//			case "mover triangulo izquierda":ventana.moverIzquierda();break;
+//			case "crear triangulo":ventana.crearTriangulo();break; 
+//			case "crear cuadrado":ventana.crearCuadrado();break; 
+//			case "crear circulo":ventana.crearCirculo();break; 
+//			
+//			case "parar":ventana.parar();break;
+//		}
+	}
+	//{"crear","triangulo","rojo"}
+	public void crearFigura(String[] palabras) {
+		String figura = palabras[1];
+		String color = palabras[2];
+				
+		ventana.dibujarFigura(figura,color);		
+		
+		
 	}
 	public void setVentana(Figura2D f) {
 		ventana = f;
