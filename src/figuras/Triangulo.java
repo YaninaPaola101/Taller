@@ -16,10 +16,10 @@ public class Triangulo extends Figura {
 		
 	}
 	public void dibujar(GL2 gl){  
-
+		
 //	   gl.glTranslatef(6.5f, 0.0f, -6.0f); //
 	   gl.glBegin(GL_TRIANGLES);  
-	   gl.glColor3f(1.0f, 0.0f, 0.0f);
+	   gl.glColor3f(Color.ROJO[0],Color.ROJO[1],Color.ROJO[2]);
        gl.glVertex3f(puntoa.getCoordenadax(), puntoa.getCoordenaday(), puntoa.getCoordenadaz());
        gl.glColor3f(0.0f, 255f, 0.0f);
        gl.glVertex3f(puntob.getCoordenadax(), puntob.getCoordenaday(), puntob.getCoordenadaz());
