@@ -12,12 +12,6 @@ public class ArmaTuCasita {
 		Ventana ventana = new Ventana();
 
 		ventana.setVisible(true);
-			
-//    	ManejarComandos manejarComandos = new ManejarComandos();
-//		ReconocimientoDePalabras.addListener(manejarComandos);
-//		ReconocimientoDePalabras.reconocimiento();
-//		
-//		manejarComandos.setVentana(new Figura2D());
 	}
 
 }

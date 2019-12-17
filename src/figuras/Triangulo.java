@@ -27,32 +27,6 @@ public class Triangulo extends Figura {
        gl.glVertex3f(puntoc.getCoordenadax(), puntoc.getCoordenaday(), puntoc.getCoordenadaz());
        gl.glEnd();
 	}
-
-	@Override
-	public void moverArriba() {
-		
-		
-	}
-	@Override
-	public void moverDerecha() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void moverAbajo() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void moverIzquierda() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void parar() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 
 

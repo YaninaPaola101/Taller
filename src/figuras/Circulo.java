@@ -4,55 +4,28 @@ import com.jogamp.opengl.GL2;
 
 public class Circulo extends Figura{
 
+	public Circulo(String color) {
+		super.asignarColor(color);
+	}
 	public void dibujar(GL2 gl){
 	    int numVertices = 30;
         double radius = 1;
-// 	   gl.glTranslatef(6.5f, 0.0f, -6.0f); //
 
-        gl.glColor3f(0, 0, 0); //set pen color to black
-        // approximate  a circle with a polygon
+        gl.glColor3f(color[0],color[1],color[2]); 
+
         gl.glBegin(GL2.GL_POLYGON);
-//        gl.glBegin(GL2.GL_TRIANGLE_FAN);
         {
             double angle = 0;
             double angleIncrement = 2 * Math.PI / numVertices;
             for (int i = 0; i < numVertices; i++) {
                 angle = i * angleIncrement;
-                double x = radius * Math.cos(angle);
-                double y = radius * Math.sin(angle);
-                gl.glVertex2d(x, y);
+                Punto temp = new Punto((float)(radius * Math.cos(angle)), (float)(radius * Math.sin(angle)), 0.0f);
+
+                gl.glVertex2d(temp.getCoordenadax(),temp.getCoordenaday());
             }
         }
         gl.glEnd();
 	}
 
-	@Override
-	public void moverArriba() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void moverDerecha() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void moverAbajo() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void moverIzquierda() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void parar() {
-		// TODO Auto-generated method stub
-		
-	}
 }

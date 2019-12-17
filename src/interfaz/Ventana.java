@@ -20,13 +20,13 @@ public class Ventana extends javax.swing.JFrame {
 	private javax.swing.JLabel jLabel2;
     public Ventana() {
         initComponents();
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setTitle("Arma Tu Casita");
+        setLocationRelativeTo(null);//ubicacion centreada
+        setResizable(false);//no permite redimensionar ventana
+        setTitle("Arma Tu Casita"); 
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/imagenHome.jpg")).getImage());
         ((JPanel)getContentPane()).setOpaque(false);
         ImageIcon imagenHome = new ImageIcon(this.getClass().getResource("/imagenes/imagenHome.jpg"));
-        JLabel fondo= new JLabel();
+        JLabel fondo= new JLabel();//la imaagen lo pone como icono del jlabel asi el jlabel cubre todo el fondop 
         
         fondo.setIcon(imagenHome);
         getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
@@ -98,15 +98,14 @@ public class Ventana extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }                     
 
-   
+    //boton salir
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         this.dispose();
     }                                                                     
-
+    //boton armar
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {    
-    	System.out.println("d");
     	iniciarGraficador();
     }  
     public void iniciarGraficador() {
@@ -115,7 +114,7 @@ public class Ventana extends javax.swing.JFrame {
 		ReconocimientoDePalabras.reconocimiento();
 		
 		manejarComandos.setVentana(new Figura2D());
-		this.dispose();
+		this.dispose();//cierra ventanda
     	
     }
 

@@ -128,7 +128,7 @@ public class Figura2D extends GLCanvas implements GLEventListener {
 	   	case "triangulo":listaFiguras.add(new Triangulo(color));break;
 	   	case "cuadrado":listaFiguras.add(new Triangulo(color));break;
 	   	case "rectangulo":listaFiguras.add(new Triangulo(color));break;
-	   	case "circulo":listaFiguras.add(new Triangulo(color));break;
+	   	case "circulo":listaFiguras.add(new Circulo(color));break;
 	   	default : System.out.println("figura no reconocida");
 	   
 	   }
