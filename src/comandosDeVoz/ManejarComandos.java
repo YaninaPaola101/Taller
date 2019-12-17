@@ -1,24 +1,27 @@
 package comandosDeVoz;
 
+import figuras.Figura;
 import geometria.Figura2D;
 import listener.ComandosListener;
 
 public class ManejarComandos implements ComandosListener{
 	
-	private Figura2D ventana ;
+	private Figura2D ventanaFiguras ;
 	
 	public ManejarComandos() {
-		ventana = new Figura2D();
+		ventanaFiguras = new Figura2D();
 	}
+	
+	//metodo principal de todo 
 	@Override
 	public void comandoPronunciado(String comando) {
 		String[] palabras = comando.split(" ");
 		
-		if(comando.startsWith("mover")){
-			
+		if(comando.startsWith("mover")){//{"mover","triangulo","rojo","arriba"}
+			moverFigura(palabras[1],palabras[2],palabras[3]);
 		}else {
-			if(comando.startsWith("parar")) {
-			
+			if(comando.startsWith("parar")) {//{"parar","triangulo","rojo"}
+				pararFigura(palabras[1],palabras[2]);
 			}else {
 				if(comando.startsWith("crear")) {
 					crearFigura(palabras);
@@ -26,32 +29,40 @@ public class ManejarComandos implements ComandosListener{
 				else {
 					System.out.println("No se reconocio comando ");
 				}
+			}
+		}
+	}
+	private void pararFigura(String figura,String color) {
+		Figura figuraBuscada= ventanaFiguras.identificarFigura(figura, color);
+		figuraBuscada.parar();
+	}
+	private void moverFigura(String figura,String color,String direccion) {
+		Figura figuraBuscada= ventanaFiguras.identificarFigura(figura, color);
+		if(figuraBuscada == null)
+			System.out.println("figura no encontrada");
+		else {
+			switch(direccion) {
+				case "arriba":figuraBuscada.moverArriba();break;
+				case "abajo":figuraBuscada.moverAbajo();break;
+				case "derecha":figuraBuscada.moverDerecha();break;
+				case "izquierda":figuraBuscada.moverIzquierda();break;
+//				case "parar":figuraBuscada.parar();break;
+				default : System.out.println("movimiento no encontrado");break;
 				
 			}
 		}
-//		switch(comando) {
-//			case "mover triangulo arriba":ventana.moverArriba();break;
-//			case "mover triangulo abajo":ventana.moverAbajo();break;
-//			case "mover triangulo derecha":ventana.moverDerecha();break;
-//			case "mover triangulo izquierda":ventana.moverIzquierda();break;
-//			case "crear triangulo":ventana.crearTriangulo();break; 
-//			case "crear cuadrado":ventana.crearCuadrado();break; 
-//			case "crear circulo":ventana.crearCirculo();break; 
-//			
-//			case "parar":ventana.parar();break;
-//		}
 	}
 	//{"crear","triangulo","rojo"}
 	public void crearFigura(String[] palabras) {
 		String figura = palabras[1];
 		String color = palabras[2];
 				
-		ventana.dibujarFigura(figura,color);		
+		ventanaFiguras.dibujarFigura(figura,color);		
 		
 		
 	}
 	public void setVentana(Figura2D f) {
-		ventana = f;
-		ventana.dibujarVentana();
+		ventanaFiguras = f;
+		ventanaFiguras.dibujarVentana();
 	}
 }

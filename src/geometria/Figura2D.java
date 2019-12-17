@@ -103,7 +103,7 @@ public class Figura2D extends GLCanvas implements GLEventListener {
       gl.glMatrixMode(GL_MODELVIEW);
       gl.glLoadIdentity(); 
    }
-
+   
    @Override
    public void display(GLAutoDrawable drawable) {
 	    GL2 gl = drawable.getGL().getGL2();  
@@ -113,22 +113,11 @@ public class Figura2D extends GLCanvas implements GLEventListener {
 	      gl.glTranslatef(-1.5f, 0.0f, -6.0f); 
 	      
 	      dibujarFiguras(gl);
-	      //implementar metodo dibujar
-	      //sgl.glTranslatef(3.0f, 0.0f, 0.0f);
-	    
 	    
    }
-//   public void dibujar(GL2 gl)
-//   {
-//	   if(cuadrado == true)
-//		   if(triangulo  == true)
-//			   	dibujarFiguras(gl);
-//	   
-//		  
-//   }
+
    public void dibujarFiguras(GL2 gl)
-   {
-	   
+   {  
 	  for(Figura f:listaFiguras)
 		  f.dibujar(gl);
 
@@ -136,13 +125,24 @@ public class Figura2D extends GLCanvas implements GLEventListener {
    public void dibujarFigura(String figura,String color) {
 	   
 	   switch(figura) {
-	   case "triangulo":listaFiguras.add(new Triangulo(color));break;
+	   	case "triangulo":listaFiguras.add(new Triangulo(color));break;
+	   	case "cuadrado":listaFiguras.add(new Triangulo(color));break;
+	   	case "rectangulo":listaFiguras.add(new Triangulo(color));break;
+	   	case "circulo":listaFiguras.add(new Triangulo(color));break;
+	   	default : System.out.println("figura no reconocida");
 	   
 	   }
 	   
    }
    
-
+   public Figura identificarFigura(String figura,String color) {
+	   for(Figura f:listaFiguras) {
+		   if(f.getTipo().equals(figura) &&  f.getNombreColor().equals(color))
+			   return f;
+	   }
+	   System.out.println("figura no encontrada");
+	   return null;
+   }
    @Override
    public void dispose(GLAutoDrawable drawable) { }
    
