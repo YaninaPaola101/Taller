@@ -1,29 +1,45 @@
 package figuras;
 
 
+import java.util.ArrayList;
 
 import com.jogamp.opengl.GL2;
 public class Cuadrado extends Figura{
-	private Punto puntoa;
-	private Punto puntob;
-	private Punto puntoc;
-	private Punto puntod;
-	public Cuadrado() {
-		this.puntoa = new Punto(-1.0f, 1.0f, 0.0f);
-		this.puntob = new Punto(1.0f, 1.0f, 0.0f);
-		this.puntoc = new Punto(1.0f, -1.0f, 0.0f);
-		this.puntod = new Punto(-1.0f, -1.0f, 0.0f);
+
+	public Cuadrado(String color) {
+		super.listaVertices = new ArrayList<Punto>();
+
+		super.listaVertices.add(new Punto(-1.0f, 1.0f, 0.0f));
+		super.listaVertices.add(new Punto(1.0f, 1.0f, 0.0f));
+		super.listaVertices.add(new Punto(1.0f, -1.0f, 0.0f));
+		super.listaVertices.add(new Punto(-1.0f, -1.0f, 0.0f));
+		this.nombreColor = color;
+		asignarColor(color);
+		super.setTipo("cuadrado");
 	}
 	public void dibujar(GL2 gl)
-	{ 	//implementar coordenadas punto ,get
+	{ 	
 //	    gl.glTranslatef(1.5f, 0.0f, -6.0f); 
 	    gl.glBegin(GL2.GL_QUADS); 
-        gl.glVertex3f(puntoa.getCoordenadax(), puntoa.getCoordenaday(), puntoa.getCoordenadaz());
-        gl.glVertex3f(puntob.getCoordenadax(), puntob.getCoordenaday(), puntob.getCoordenadaz());
-        gl.glVertex3f(puntoc.getCoordenadax(), puntoc.getCoordenaday(), puntoc.getCoordenadaz());
-        gl.glVertex3f(puntod.getCoordenadax(), puntod.getCoordenaday(), puntod.getCoordenadaz());
-
+        
+	    gl.glVertex3f(super.listaVertices.get(0).getCoordenadax(),
+	        		super.listaVertices.get(0).getCoordenaday(),
+	        		super.listaVertices.get(0).getCoordenadaz());
+        
+        gl.glVertex3f(super.listaVertices.get(1).getCoordenadax(), 
+		   		super.listaVertices.get(1).getCoordenaday(), 
+		   		super.listaVertices.get(1).getCoordenadaz());
+        
+        gl.glVertex3f(super.listaVertices.get(2).getCoordenadax(), 
+		   		super.listaVertices.get(2).getCoordenaday(), 
+		   		super.listaVertices.get(2).getCoordenadaz());
+        
+        gl.glVertex3f(super.listaVertices.get(3).getCoordenadax(), 
+		   		super.listaVertices.get(3).getCoordenaday(), 
+		   		super.listaVertices.get(3).getCoordenadaz());
+        
         gl.glEnd();
+        super.mover();
 	}
 
 	

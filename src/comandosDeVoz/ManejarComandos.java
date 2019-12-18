@@ -20,10 +20,10 @@ public class ManejarComandos implements ComandosListener{
 		if(comando.startsWith("mover") && palabras.length ==4){//{"mover","triangulo","rojo","arriba"}
 			moverFigura(palabras[1],palabras[2],palabras[3]);
 		}else {
-			if(comando.startsWith("parar") && palabras.length ==3) {//{"parar","triangulo","rojo"}
+			if(comando.startsWith("parar") && palabras.length >=3) {//{"parar","triangulo","rojo"}
 				pararFigura(palabras[1],palabras[2]);
 			}else {
-				if(comando.startsWith("crear") && palabras.length ==3) {
+				if(comando.startsWith("crear") && palabras.length >=3) {
 					crearFigura(palabras);
 				}
 				else {
@@ -34,19 +34,23 @@ public class ManejarComandos implements ComandosListener{
 	}
 	private void pararFigura(String figura,String color) {
 		Figura figuraBuscada= ventanaFiguras.identificarFigura(figura, color);
-		//figuraBuscada.parar();
+		figuraBuscada.parar();
 	}
 	private void moverFigura(String figura,String color,String direccion) {
 		Figura figuraBuscada= ventanaFiguras.identificarFigura(figura, color);
 		if(figuraBuscada == null)
 			System.out.println("figura no encontrada");
 		else {
+			figuraBuscada.parar();
 			switch(direccion) {
-//				case "arriba":figuraBuscada.moverArriba();break;
-//				case "abajo":figuraBuscada.moverAbajo();break;
-//				case "derecha":figuraBuscada.moverDerecha();break;
-//				case "izquierda":figuraBuscada.moverIzquierda();break;
-//				case "parar":figuraBuscada.parar();break;
+				case "arriba":	figuraBuscada.movimientos[figuraBuscada.ARRIBA]=true;
+								break;
+				case "abajo":	figuraBuscada.movimientos[figuraBuscada.ABAJO]=true;
+								figuraBuscada.moverAbajo();break;
+				case "derecha": figuraBuscada.movimientos[figuraBuscada.DERECHA]=true;
+								figuraBuscada.moverDerecha();break;
+				case "izquierda":	figuraBuscada.movimientos[figuraBuscada.IZQUIERDA]=true;
+									figuraBuscada.moverIzquierda();break;
 				default : System.out.println("movimiento no encontrado");break;
 				
 			}

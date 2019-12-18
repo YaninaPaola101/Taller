@@ -11,40 +11,76 @@ public abstract class Figura {
 	protected String nombreColor;
 	protected List<Punto> listaVertices;
 	public abstract void dibujar(GL2 gl);
-	
+	public boolean[] movimientos= {false,false,false,false,false};
+	public static final int ARRIBA=0;
+	public static final int DERECHA=1;
+	public static final int ABAJO=2;
+	public static final int IZQUIERDA=3;
+	public static final int PARAR=4;
 	private float aditivox;
 	private float aditivoy;
 	private float velocidad =0.005f;
-//	
-//	public void moverArriba()
-//	{   
-//	    aditivox = 0.0f;
-//	    aditivoy= velocidad;
-//	    coordenaday=aditivoy;
-//	}
-//	public void moverAbajo()
-//	{
-//	    aditivox = 0.0f;
-//	    aditivoy = -velocidad;
-//	    coordenadaY=aditivoy;   
-//	}
-//	public void moverIzquierda()
-//	{
-//	    aditivoy = 0.0f;
-//	    aditivox=-velocidad;
-//	    coordenadaX=aditivox;
-//	}
-//	public void moverDerecha()
-//	{
-//	    aditivoy=0.0f;
-//	    aditivox = velocidad;
-//	    coordenadaX=aditivox;   
-//	}
-//	public void parar()
-//	{
-//	    aditivox = 0.0f;
-//	    aditivoy = 0.0f;
-//	}
+	
+	private void movimientox() {
+		for(Punto p:listaVertices)
+			p.setCoordenadax(p.getCoordenadax()+aditivox);
+	}
+	private void movimientoy() {
+		for(Punto p:listaVertices)
+			p.setCoordenaday(p.getCoordenaday()+aditivoy);
+	}
+	public void mover() {
+		moverArriba();
+		moverAbajo();
+		moverIzquierda();
+		moverDerecha();
+	}
+
+	public void moverArriba()
+	{   
+		if(movimientos[ARRIBA]) {
+			System.out.println("arriba");
+			aditivox = 0.0f;
+		    aditivoy= velocidad;
+		    movimientoy();
+		}
+	}
+	public void moverAbajo()
+	{
+		if(movimientos[ABAJO]) {
+		    aditivox = 0.0f;
+		    aditivoy = -velocidad;
+		    movimientoy();
+	    }
+	}
+	public void moverIzquierda()
+	{
+		if(movimientos[IZQUIERDA]) {
+		    aditivoy = 0.0f;
+		    aditivox=-velocidad;
+	//	    coordenadaX=aditivox;
+		    movimientox();
+		}
+	}
+	public void moverDerecha()
+	{
+		if(movimientos[DERECHA]) {
+		    aditivoy=0.0f;
+		    aditivox = velocidad;
+	//	    coordenadaX=aditivox;
+		    movimientox();
+		}
+	}
+	public void parar()
+	{
+		System.out.println("Parar");
+	    aditivox = 0.0f;
+	    aditivoy = 0.0f;
+	    movimientos[ARRIBA]=false;
+	    movimientos[ABAJO]=false;
+	    movimientos[DERECHA]=false;
+	    movimientos[IZQUIERDA]=false;
+	}
 	
 	
 	public void asignarColor(String color){

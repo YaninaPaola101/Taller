@@ -1,9 +1,8 @@
-/grammars/
-/libraries/
-/geometria/
 /comandosDeVoz/
 /figuras/
+/geometria/
 /interfaz/
-/figura1.jpg
-/imagenHome.jpg
-/imagenes/
+/libraries/
+/listener/
+/analizadorLexico/
+/xml/
