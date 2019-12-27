@@ -39,12 +39,12 @@ public abstract class Figura {
 	public void moverArriba()
 	{   
 		if(movimientos[ARRIBA]) {
-			System.out.println("arriba");
 			aditivox = 0.0f;
 		    aditivoy= velocidad;
 		    movimientoy();
 		}
 	}
+	
 	public void moverAbajo()
 	{
 		if(movimientos[ABAJO]) {
@@ -73,7 +73,6 @@ public abstract class Figura {
 	}
 	public void parar()
 	{
-		System.out.println("Parar");
 	    aditivox = 0.0f;
 	    aditivoy = 0.0f;
 	    movimientos[ARRIBA]=false;

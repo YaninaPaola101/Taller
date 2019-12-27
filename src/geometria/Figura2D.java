@@ -20,7 +20,7 @@ import figuras.Rectangulo;
 import figuras.Triangulo;
 import static com.jogamp.opengl.GL.*;  
 import static com.jogamp.opengl.GL2.*;
-import static com.jogamp.opengl.GL2ES3.GL_QUADS; 
+
 import java.util.List;
 @SuppressWarnings("serial")
 public class Figura2D extends GLCanvas implements GLEventListener {
@@ -146,5 +146,10 @@ public class Figura2D extends GLCanvas implements GLEventListener {
    }
    @Override
    public void dispose(GLAutoDrawable drawable) { }
+
+   public void guardar() {
+	   
+		
+   }
    
 }

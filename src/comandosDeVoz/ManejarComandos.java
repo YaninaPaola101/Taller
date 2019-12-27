@@ -27,7 +27,10 @@ public class ManejarComandos implements ComandosListener{
 					crearFigura(palabras);
 				}
 				else {
-					System.out.println("No se reconocio comando ");
+//					if(comando.startsWith("guardar"))
+//						ventanaFiguras.guardar();
+//					else
+						System.out.println("No se reconocio comando ");
 				}
 			}
 		}

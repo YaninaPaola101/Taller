@@ -6,7 +6,7 @@
 
 grammar grammar;
 
-public <verbo> = (mover | crear | parar);
+public <verbo> = (mover | crear | parar | guardar);
 
 public <figuras>  = (triangulo | circulo | cuadrado | rectangulo);
 
